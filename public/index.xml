@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Renny Harlin</title><link>https://rennyharlin.github.io/</link><description>Recent content on Renny Harlin</description><image><title>Renny Harlin</title><url>https://rennyharlin.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url><link>https://rennyharlin.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link></image><generator>Hugo -- 0.152.2</generator><language>en</language><lastBuildDate>Wed, 15 Jul 2026 09:34:46 +0530</lastBuildDate><atom:link href="https://rennyharlin.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Trees</title><link>https://rennyharlin.github.io/posts/dsa/trees/</link><pubDate>Wed, 15 Jul 2026 09:34:46 +0530</pubDate><guid>https://rennyharlin.github.io/posts/dsa/trees/</guid><description>&lt;h2 id="235-lowest-common-ancestor-of-a-binary-search-tree"&gt;235. Lowest Common Ancestor of a Binary Search Tree&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;lowestCommonAncestor&lt;/span&gt;(self, root: &lt;span style="color:#e6db74"&gt;&amp;#39;TreeNode&amp;#39;&lt;/span&gt;, p: &lt;span style="color:#e6db74"&gt;&amp;#39;TreeNode&amp;#39;&lt;/span&gt;, q: &lt;span style="color:#e6db74"&gt;&amp;#39;TreeNode&amp;#39;&lt;/span&gt;) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;TreeNode&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; p&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;or&lt;/span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; p&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; root
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; p&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;and&lt;/span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;and&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;left:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lowestCommonAncestor(root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;left, p, q)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;right:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; self&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lowestCommonAncestor(root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;right, p, q)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="102-binary-tree-level-order-traversal"&gt;102. Binary Tree Level Order Traversal&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;levelOrder&lt;/span&gt;(self, root: Optional[TreeNode]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; List[List[int]]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; root:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; q &lt;span style="color:#f92672"&gt;=&lt;/span&gt; deque()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(root)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ans &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(q):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; level_size &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(q)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; level &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(level_size):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; el &lt;span style="color:#f92672"&gt;=&lt;/span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;popleft()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; level&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(el&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; el&lt;span style="color:#f92672"&gt;.&lt;/span&gt;left:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(el&lt;span style="color:#f92672"&gt;.&lt;/span&gt;left)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; el&lt;span style="color:#f92672"&gt;.&lt;/span&gt;right:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; q&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(el&lt;span style="color:#f92672"&gt;.&lt;/span&gt;right)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ans&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(level)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; ans
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="98-validate-binary-search-tree"&gt;98. Validate Binary Search Tree&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;isValidBST&lt;/span&gt;(self, root: Optional[TreeNode]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; bool:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;helper&lt;/span&gt;(root, low, high):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; root:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; low &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; high:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; helper(root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;left, low, root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val) &lt;span style="color:#f92672"&gt;and&lt;/span&gt; helper(root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;right, root&lt;span style="color:#f92672"&gt;.&lt;/span&gt;val, high)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; helper(root, float(&lt;span style="color:#e6db74"&gt;&amp;#39;-inf&amp;#39;&lt;/span&gt;), float(&lt;span style="color:#e6db74"&gt;&amp;#39;inf&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2&gt;&lt;/h2&gt;</description></item><item><title>Ax=b: The Jack of all Trades</title><link>https://rennyharlin.github.io/posts/ml-math/axb/</link><pubDate>Wed, 04 Feb 2026 12:02:16 +0530</pubDate><guid>https://rennyharlin.github.io/posts/ml-math/axb/</guid><description>&lt;p&gt;$Ax=b$, seems so simple right ?&lt;/p&gt;
+&lt;p&gt;To find $x$ just compute $A^{-1}b$, and most math libraries will give you the answer.&lt;/p&gt;
+&lt;p&gt;But, every linear algebra student knows the real pain behind this nightmare equation :(&lt;/p&gt;
+&lt;p&gt;The problem with this equation is that $x=A^{-1}b$ won&amp;rsquo;t work for all possible values of $A$ and $b$. So, there are like a ton of boundary conditions to consider inorder to find the right solution for $x$. And, the entirety of modern machine learning revolves around this idea.&lt;/p&gt;</description></item><item><title>Probability Distributions</title><link>https://rennyharlin.github.io/posts/ml-math/probability-distributions/</link><pubDate>Fri, 30 Jan 2026 08:44:38 +0530</pubDate><guid>https://rennyharlin.github.io/posts/ml-math/probability-distributions/</guid><description>&lt;p&gt;&lt;em&gt;This article is part of a series on &lt;a href="https://rennyharlin.github.io/series/math-for-machine-learning/"&gt;Math for Machine Learning&lt;/a&gt;, follow along to learn more about some of the math involved with ML&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This is a concept that you study once, and expect to remember it for life. But fate has it, you really cannot. I&amp;rsquo;ve been out in this cycle for over 2 years.&lt;/p&gt;
+&lt;p&gt;So, now finally I&amp;rsquo;m nailing this concept down in my blog.&lt;/p&gt;
+&lt;h2 id="what-is-a-random-variable-"&gt;What is a random variable ?&lt;/h2&gt;
+&lt;p&gt;First of all, nothing about a random variable is random :)&lt;/p&gt;</description></item><item><title>Principal Component Analysis (PCA)</title><link>https://rennyharlin.github.io/posts/machine-learning/pca/</link><pubDate>Thu, 29 Jan 2026 08:55:16 +0530</pubDate><guid>https://rennyharlin.github.io/posts/machine-learning/pca/</guid><description>&lt;p&gt;&lt;em&gt;This article is part of a series on &lt;a href="https://rennyharlin.github.io/series/introduction-to-machine-learning/"&gt;Introduction to Machine Learning&lt;/a&gt;, follow along to learn more about different machine learning algorithms intuitively&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Let&amp;rsquo;s imagine you have a dataset consisting of 10 features. As a data scientist, your first job with any dataset is exploratory data analysis.&lt;/p&gt;
+&lt;p&gt;But, how many 2-D plots can you even explore ?&lt;/p&gt;
+&lt;p&gt;For a dataset with 10 features, You&amp;rsquo;ll have to explore over 45 2-dimensional plots. PCA solves this problem by transforming your higher dimensional dataset to a lower dimension still preserving most of the original information.&lt;/p&gt;</description></item><item><title>Linear Regression</title><link>https://rennyharlin.github.io/posts/machine-learning/regression/</link><pubDate>Sun, 25 Jan 2026 17:47:48 +0530</pubDate><guid>https://rennyharlin.github.io/posts/machine-learning/regression/</guid><description>&lt;p&gt;&lt;em&gt;This article is part of a series on &lt;a href="https://rennyharlin.github.io/series/introduction-to-machine-learning/"&gt;Introduction to Machine Learning&lt;/a&gt;, follow along to learn more about different machine learning algorithms intuitively&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This is one of machine learning&amp;rsquo;s lightly interpreted algorithms out there. Often always taught using abstractions that kills the beauty of this interesting algorithm.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s look at this algorithm from the ground up.&lt;/p&gt;
+&lt;p&gt;First for any supervised machine learning, we need a dataset. Let&amp;rsquo;s construct a simple one.&lt;/p&gt;</description></item><item><title>HDFS and MapReduce: Revolutionizing Big Data Processing</title><link>https://rennyharlin.github.io/posts/big-data/map-reduce/</link><pubDate>Tue, 23 Dec 2025 17:43:33 +0530</pubDate><guid>https://rennyharlin.github.io/posts/big-data/map-reduce/</guid><description>&lt;p&gt;HDFS and MapReduce can be confusing at times. Let&amp;rsquo;s break down the entire process step-by-step with a concrete example.&lt;/p&gt;
+&lt;p&gt;The example I&amp;rsquo;m going to use is calculating the average movie rating per genre from a CSV file. First, we have to upload the CSV file into HDFS, and then we will run a MapReduce job to compute the average ratings.&lt;/p&gt;
+&lt;p&gt;We assume:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Data format:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;genre,rating&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Goal: &lt;strong&gt;average rating per genre&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Regular Expressions</title><link>https://rennyharlin.github.io/posts/computer-science/regular-expressions/</link><pubDate>Fri, 05 Dec 2025 10:38:28 +0530</pubDate><guid>https://rennyharlin.github.io/posts/computer-science/regular-expressions/</guid><description>&lt;ul&gt;
+&lt;li&gt;In this blog, we are going to explore the world of regular expressions&lt;/li&gt;
+&lt;li&gt;Regular expressions are used for parsing and validating strings especially in applications of Natural Language Processing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="1-literals"&gt;1. Literals&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cat&lt;/td&gt;
+&lt;td&gt;Match all occurences of &amp;ldquo;cat&amp;rdquo; anywhere inside the text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="2-character-classes"&gt;2. Character Classes&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[abc]&lt;/td&gt;
+&lt;td&gt;a or b or c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[a-zA-Z0-9]&lt;/td&gt;
+&lt;td&gt;Any lowercase or uppercase or digit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[^a-z]&lt;/td&gt;
+&lt;td&gt;Anything except lowercase&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="3-quantifiers"&gt;3. Quantifiers&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;0 or more occurence&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;1 or more occurence&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;0 or 1 occurence&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n}&lt;/td&gt;
+&lt;td&gt;Exactly n occurences&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n,}&lt;/td&gt;
+&lt;td&gt;n or more occurences&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n, m}&lt;/td&gt;
+&lt;td&gt;Between n and m occurences&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="4-anchors"&gt;4. Anchors&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;Start of a string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;End of a string&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;td&gt;Word boundary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;td&gt;Non-boundary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="5-grouping"&gt;5. Grouping&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;(abc)&lt;/td&gt;
+&lt;td&gt;Grouping (useful for extraction)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="6-alternation"&gt;6. Alternation&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;a|b&lt;/td&gt;
+&lt;td&gt;Alternation (a or b)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="7-escape-sequences"&gt;7. Escape Sequences&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;\.&lt;/td&gt;
+&lt;td&gt;When you want to use a &amp;ldquo;.&amp;rdquo; or any other symbol in literal sense use &amp;ldquo;\&amp;rdquo; as an escape sequence&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="8-predefined-classes"&gt;8. Predefined Classes&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pattern&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;\d&lt;/td&gt;
+&lt;td&gt;digit(0-9)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\D&lt;/td&gt;
+&lt;td&gt;non-digit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;word char (letters, digits)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;td&gt;non-word char&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\s&lt;/td&gt;
+&lt;td&gt;whitespace&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\S&lt;/td&gt;
+&lt;td&gt;non-whitespace&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="python-re-module"&gt;Python &lt;code&gt;re&lt;/code&gt; module&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Search ( Find first occurence of the pattern in the text )&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Find first word starting with capital letter&lt;/p&gt;</description></item><item><title>Forward and inverse kinematics of a 2-link manipulator</title><link>https://rennyharlin.github.io/posts/robotics/2-link-manipulator/</link><pubDate>Tue, 02 Dec 2025 10:58:35 +0530</pubDate><guid>https://rennyharlin.github.io/posts/robotics/2-link-manipulator/</guid><description>&lt;p&gt;The 2-link manipulator is a fundamental robotics system that is used by robot enthusiasts to understand the principles of kinematics. A 2-link manipulator consists of two rigid links connected by revolute joints, allowing for planar motion.&lt;/p&gt;
+&lt;p&gt;In this post, we will explore the forward and inverse kinematics of a 2-link manipulator.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Forward kinematics&lt;/strong&gt; - Given joint parameters, what is the position of the end-effector&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inverse kinematics&lt;/strong&gt; - Given the position of the end-effector, what are the joint parameters&lt;/p&gt;</description></item><item><title>Computer Security: Data Encryption Standard (DES)</title><link>https://rennyharlin.github.io/posts/computer-security/des/</link><pubDate>Mon, 01 Dec 2025 18:23:22 +0530</pubDate><guid>https://rennyharlin.github.io/posts/computer-security/des/</guid><description>&lt;p&gt;DES is a symmetric-key block cipher that follows the Fiestal Cipher structure.&lt;/p&gt;
+&lt;h3 id="the-steps-involved-in-encryption-are"&gt;The steps involved in encryption are:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Apply an initial permutation to the 64-bit input block using a permutation matrix&lt;/li&gt;
+&lt;li&gt;Similar to the Fiestal Cipher structure, split the 64 bit output after permutation into 2 halves \(L_0\) (32 bits) and \(R_0\) (32 bits)&lt;/li&gt;
+&lt;li&gt;Compute F(\(R_0\), \(k_0\)) using expansion, XOR, S-boxes, and permutation&lt;/li&gt;
+&lt;li&gt;Set \(L_1\) = \(R_0\) and \(R_1\) = \(L_0\) XOR F(\(R_0\), \(k_0\))&lt;/li&gt;
+&lt;li&gt;Now, this concludes the first round. Now, do steps 3-4 15 more times&lt;/li&gt;
+&lt;li&gt;After round 16, perform a 32-bit swap like in Fiestal Cipher structure&lt;/li&gt;
+&lt;li&gt;Undo the initial permutation to get the cipher text&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="des-encryption-workflow" loading="lazy" src="https://rennyharlin.github.io/imgs/des/des.png"&gt;&lt;/p&gt;</description></item><item><title>Make your own site like me using Hugo with PaperMod theme</title><link>https://rennyharlin.github.io/posts/hugo/</link><pubDate>Mon, 01 Dec 2025 06:41:43 +0530</pubDate><guid>https://rennyharlin.github.io/posts/hugo/</guid><description>&lt;p&gt;This blog will help you build your own blog site using Hugo with PaperMod theme and deploy it in github pages for $0&lt;/p&gt;
+&lt;h2 id="1-what-is-hugo-"&gt;1. What is Hugo ?&lt;/h2&gt;
+&lt;p&gt;Hugo is a fast static site generator. It converts Markdown files into a full HTML, CSS, and Javascript site using a theme.&lt;/p&gt;
+&lt;h3 id="advantages"&gt;Advantages:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Extremely fast serving after deployment&lt;/li&gt;
+&lt;li&gt;Intuitive folder based structure&lt;/li&gt;
+&lt;li&gt;Great for blogs and portfolios&lt;/li&gt;
+&lt;li&gt;Works effortlessly with Github Pages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-prerequisites"&gt;2. Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure git is installed. git will help you deploy your site to Github pages as well as add themes to your hugo site&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you don&amp;rsquo;t have git, please refer to: &lt;a href="https://git-scm.com/install/windows"&gt;Git Installation&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hello World</title><link>https://rennyharlin.github.io/posts/hello-world/</link><pubDate>Sat, 01 Nov 2025 06:41:43 +0430</pubDate><guid>https://rennyharlin.github.io/posts/hello-world/</guid><description>My first Hello World post.</description></item></channel></rss>

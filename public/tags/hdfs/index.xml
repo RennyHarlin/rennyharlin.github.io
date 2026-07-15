@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hdfs on Renny Harlin</title><link>https://rennyharlin.github.io/tags/hdfs/</link><description>Recent content in Hdfs on Renny Harlin</description><image><title>Renny Harlin</title><url>https://rennyharlin.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url><link>https://rennyharlin.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link></image><generator>Hugo -- 0.152.2</generator><language>en</language><lastBuildDate>Tue, 23 Dec 2025 17:43:33 +0530</lastBuildDate><atom:link href="https://rennyharlin.github.io/tags/hdfs/index.xml" rel="self" type="application/rss+xml"/><item><title>HDFS and MapReduce: Revolutionizing Big Data Processing</title><link>https://rennyharlin.github.io/posts/big-data/map-reduce/</link><pubDate>Tue, 23 Dec 2025 17:43:33 +0530</pubDate><guid>https://rennyharlin.github.io/posts/big-data/map-reduce/</guid><description>&lt;p&gt;HDFS and MapReduce can be confusing at times. Let&amp;rsquo;s break down the entire process step-by-step with a concrete example.&lt;/p&gt;
+&lt;p&gt;The example I&amp;rsquo;m going to use is calculating the average movie rating per genre from a CSV file. First, we have to upload the CSV file into HDFS, and then we will run a MapReduce job to compute the average ratings.&lt;/p&gt;
+&lt;p&gt;We assume:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Data format:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;genre,rating&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Goal: &lt;strong&gt;average rating per genre&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
