@@ -66,4 +66,15 @@ Here are several ways you can improve your prompt according to me and other prof
 
     ✓ Prompt: "Explain me about generative AI. I prefer the response to be in bullet points, such that it enables me to learn a lot in a short period of time."
     ```
+- Give permission to AI to express uncertainity
+    - AI is the most agreeable and most positive thing in this world right now. Even if it doesn't know the answer to a particular query, it gives us a very agreeable speculation that sounds too good to be false.
+    - This is why great care has to be taken, to increase reliability.
+    - Whenever presented with the situation, always give explicit permission to the AI to disagree rather than guessing.
+    ```
+    ✗ Prompt: "Analyze this code and let me know the bugs.
+    ✓ Prompt: "Anayze this code and let me know the bugs if any. If there no bugs, just say so."
+    ```
 
+A quick disclaimer before I end this blog. This blog was influenced by AI and not generated using AI :)
+
+Thank you for reading. Happy Learning !
