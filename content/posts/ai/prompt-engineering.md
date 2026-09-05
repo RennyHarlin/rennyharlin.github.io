@@ -2,6 +2,7 @@
 date: '2026-09-04T08:13:47+05:30'
 draft: False
 title: 'The Art of an Effective Prompt'
+categories: ["Artificial Intelligence"]
 ---
 
 Chat interfaces, Agents, or whatever generative AI at its core is powered by Large Language Models (LLMs). For the rest of this blog, I'll be refering to generative AI as just AI.
