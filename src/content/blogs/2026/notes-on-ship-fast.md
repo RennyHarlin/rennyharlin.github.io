@@ -3,6 +3,7 @@ title: "Notes on Shipping Fast"
 description: "Simple principles for shipping useful work without getting stuck in perfectionism."
 date: 2026-09-15
 draft: false
+tags: ["hi", "cs", "ai"]
 ---
 
 # Notes on Shipping Fast

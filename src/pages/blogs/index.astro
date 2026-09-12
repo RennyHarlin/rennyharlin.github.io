@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+const blogs = await getCollection('blogs');
+---
+<Layout>
+    <div>
+        {   
+            blogs.map((blog) => (
+            <Card title={blog.data.title} description={blog.data.description} date={blog.data.date} id={blog.id} />
+            ))
+        }
+    </div>
+</Layout>

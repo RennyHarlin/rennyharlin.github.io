@@ -1,0 +1,17 @@
+---
+const props = Astro.props;
+const { title, description, date, id } = props;
+const formated_date = new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+---
+
+<div class="bg-slate-200 p-4 rounded-lg shadow-md mb-4 hover:bg-slate-400 transition duration-300">
+    <a href={`/blogs/${id}`}>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <p>{formated_date}</p>
+    </a>
+</div>

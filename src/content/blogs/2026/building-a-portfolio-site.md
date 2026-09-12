@@ -2,6 +2,7 @@
 title: "Building a Portfolio Site"
 description: "Planning a personal portfolio with a simple layout and clear content structure."
 date: 2026-09-05
+tags: ["ai", "cs", "hello"]
 draft: false
 ---
 

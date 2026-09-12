@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const blogs = await getCollection('blogs');
+
+const tagMap = new Map<string, { title: string; id: string }[]>();
+
+for (const blog of blogs) {
+    for (const tag of blog.data.tags ?? []) {
+        const posts = tagMap.get(tag) ?? [];
+        posts.push({ title: blog.data.title, id: blog.id });
+        tagMap.set(tag, posts);
+    }
+}
+
+const tags = [...tagMap.entries()].sort(([left], [right]) => left.localeCompare(right));
+---
+
+<Layout>
+    <div class="space-y-6">
+        {tags.map(([tag, posts]) => (
+            <section class="rounded-lg border border-slate-200 bg-slate-100 p-4 shadow-sm">
+                <h2 class="mb-3 text-xl font-semibold">
+                    {tag}
+                </h2>
+
+                <ul class="space-y-2">
+                    {posts.map((post) => (
+                        <li>
+                            <a href={`/blogs/${post.id}`} class="text-sky-700 hover:underline">
+                                {post.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))}
+    </div>
+</Layout>
