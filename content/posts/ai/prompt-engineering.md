@@ -52,7 +52,7 @@ Here are several ways you can improve your prompt according to me and other prof
 
     ```
 - Provide context
-    - LLMs are trained on large corpuses of information, hence its easy for them to get lost without the right context. Always provide sufficient context to steer then in the right direction either explicitly in the prompt or files. Almost all AI providers support uploads in all formats .pdf, .csv, .docx etc. If you have your context in form of these files. Make sure to upload them.
+    - LLMs are trained on large corpuses of information, hence its easy for them to get lost without the right context. Always provide sufficient context to steer them in the right direction either explicitly in the prompt or files. Almost all AI providers support uploads in all formats .pdf, .csv, .docx etc. If you have your context in form of these files. Make sure to upload them.
     - Multiple AI providers like OpenAI, Anthropic etc. have their own clever ways of maintaining a global context that is sent along with your prompt to the LLM in every request. This global context is constructed based on your interactions with their platform or the preferences you would have filled in your settings. This is used to improve user experience across sessions. This is called context engineering. This on its own deserves its own blog. Maybe I'll cover it someday.
     ```
     ✗ Prompt: "Write an email to my professor asking for an extension."
