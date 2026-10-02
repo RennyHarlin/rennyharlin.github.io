@@ -5,8 +5,6 @@ date: 2026-09-12
 draft: false
 ---
 
-# Why Frontend Performance Matters
-
 Performance is not just a technical detail. It shapes how people perceive the product and whether they continue using it.
 
 ## Common benefits

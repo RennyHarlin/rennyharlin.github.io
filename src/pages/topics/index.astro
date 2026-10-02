@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getPublishedPosts } from "../../lib/posts";
+
+const blogs = await getPublishedPosts();
+
+const topicMap = new Map<string, { title: string; id: string }[]>();
+
+for (const blog of blogs) {
+    for (const topic of blog.data.topics ?? []) {
+        const posts = topicMap.get(topic) ?? [];
+        posts.push({ title: blog.data.title, id: blog.id });
+        topicMap.set(topic, posts);
+    }
+}
+
+const topics = [...topicMap.entries()].sort(([left], [right]) => left.localeCompare(right));
+---
+
+<Layout title="Topics" description="Browse writing by topic.">
+  <header class="mb-10">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Topics</h1>
+    <p class="mt-4 text-base leading-7 text-muted-foreground">Browse posts by subject.</p>
+  </header>
+  {topics.length > 0 ? (
+    <div class="space-y-9">
+      {topics.map(([topic, posts]) => (
+        <section id={topic} class="scroll-mt-6">
+          <div class="mb-3 flex items-baseline gap-3">
+            <h2 class="text-xl font-semibold tracking-tight">{topic}</h2>
+            <span class="text-sm text-muted-foreground">{posts.length} {posts.length === 1 ? "post" : "posts"}</span>
+          </div>
+          <ul class="space-y-2">
+            {posts.map((post) => (
+              <li><a href={`/blogs/${post.id}/`} class="text-sm leading-7 underline decoration-border underline-offset-4 hover:text-primary hover:decoration-current sm:text-base">{post.title}</a></li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  ) : (
+    <p class="text-muted-foreground">Topics will appear as they are added to posts.</p>
+  )}
+</Layout>

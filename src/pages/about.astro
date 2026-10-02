@@ -1,8 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import portrait from "../assets/renny-portrait.jpg";
 ---
 
-<Layout>
-    <h1>About Me</h1>
-    <p>TODO: clg life, courses you like, projects, internships, extracurriculars, favourite frameworks</p>
+<Layout title="About" description="Meet Renny Harlin, a computer science student building across AI and the web.">
+  <section>
+    <h1 class="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">About me</h1>
+    <Image src={portrait} alt="Portrait of Renny Harlin" width={128} height={128} class="mt-6 size-28 rounded-full object-cover" />
+    <div class="mt-7 space-y-4 text-base leading-8 text-muted-foreground">
+      <p>I'm pursuing a B.Tech in Computer Science and Engineering (Artificial Intelligence) at Amrita School of Engineering, Coimbatore, graduating in 2027.</p>
+      <p>I enjoy building useful software and exploring machine learning through computer vision, robotics, and full-stack projects. This blog is where I share what I learn along the way.</p>
+    </div>
+    <p class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+      <a href="/" class="underline decoration-border underline-offset-4 hover:text-primary hover:decoration-current">Read the blog</a>
+      <a href="https://github.com/RennyHarlin" target="_blank" rel="noopener noreferrer" class="underline decoration-border underline-offset-4 hover:text-primary hover:decoration-current">GitHub</a>
+    </p>
+  </section>
 </Layout>

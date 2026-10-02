@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.988 0.004 90);
+  --foreground: oklch(0.23 0.015 255);
+  --muted: oklch(0.95 0.006 90);
+  --muted-foreground: oklch(0.5 0.016 255);
+  --border: oklch(0.89 0.008 90);
+  --primary: oklch(0.39 0.085 181);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.18 0.011 255);
+  --foreground: oklch(0.93 0.006 90);
+  --muted: oklch(0.27 0.012 255);
+  --muted-foreground: oklch(0.68 0.01 255);
+  --border: oklch(0.34 0.012 255);
+  --primary: oklch(0.75 0.087 178);
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

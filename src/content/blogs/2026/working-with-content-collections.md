@@ -5,8 +5,6 @@ date: 2026-09-08
 draft: false
 ---
 
-# Working with Content Collections
-
 Content collections are one of the most useful features in Astro for blogs and documentation sites. Instead of hard-coding article data, you can store frontmatter and markdown files in a structured location.
 
 ## Benefits

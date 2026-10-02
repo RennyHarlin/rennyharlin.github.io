@@ -2,11 +2,9 @@
 title: "Building a Portfolio Site"
 description: "Planning a personal portfolio with a simple layout and clear content structure."
 date: 2026-09-05
-tags: ["ai", "cs", "hello"]
+topics: ["ai", "cs", "hello"]
 draft: false
 ---
-
-# Building a Portfolio Site
 
 A portfolio site should make your work easy to understand at a glance. The best ones usually focus on clarity, visual rhythm, and a strong call to action.
 

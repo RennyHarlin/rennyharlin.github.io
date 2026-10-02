@@ -3,10 +3,8 @@ title: "Notes on Shipping Fast"
 description: "Simple principles for shipping useful work without getting stuck in perfectionism."
 date: 2026-09-15
 draft: false
-tags: ["hi", "cs", "ai"]
+topics: ["hi", "cs", "ai"]
 ---
-
-# Notes on Shipping Fast
 
 Shipping is often more valuable than polishing endlessly. Teams move faster when they choose a clear goal and simplify the work required to reach it.
 
