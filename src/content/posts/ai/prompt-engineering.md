@@ -1,5 +1,6 @@
 ---
 title: 'The Art of an Effective Prompt'
+description: "LLMs just predict the next token, so your prompt decides the answer. Practical ways to prompt better: be specific, give examples and provide context."
 date: '2026-09-04T08:13:47+05:30'
 topics: ["Artificial Intelligence"]
 ---

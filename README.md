@@ -13,6 +13,7 @@ title: 'My Post'
 description: 'One line for search results and link previews.' # optional
 date: 2026-11-08
 topics: ['Artificial Intelligence']   # one or more; each gets a page under /topics/
+toc: true                             # optional; table of contents from the post's headings
 draft: true                           # optional; drafts only show in `npm run dev`
 ---
 

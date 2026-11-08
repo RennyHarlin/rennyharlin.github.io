@@ -1,7 +1,9 @@
 ---
 title: 'Probability Distributions'
+description: "Random variables and the common discrete and continuous probability distributions, explained so they finally stick."
 date: '2026-01-30T08:44:38+05:30'
 topics: ["Statistics", "Math for Machine Learning"]
+toc: true
 ---
 
 *This article is part of a series on [Math for Machine Learning](/topics/math-for-machine-learning/), follow along to learn more about some of the math involved with ML*

@@ -1,7 +1,9 @@
 ---
 title: 'Ax=b: The Jack of all Trades'
+description: "Why x = A⁻¹b doesn't always work: vector spaces, subspaces, rank and the cases of Ax=b that lead to the Moore-Penrose pseudoinverse."
 date: '2026-02-04T12:02:16+05:30'
 topics: ["Math for Machine Learning"]
+toc: true
 ---
 
 $Ax=b$, seems so simple right ?

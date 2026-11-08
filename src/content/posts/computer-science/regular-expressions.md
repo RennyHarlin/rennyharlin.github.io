@@ -1,7 +1,9 @@
 ---
 title: "Regular Expressions"
+description: "A quick reference to regular expressions: literals, character classes, quantifiers, anchors, grouping and more, with examples in Python's re module."
 date: "2025-12-05T10:38:28+05:30"
 topics: ["Computer Science"]
+toc: true
 ---
 
 - In this blog, we are going to explore the world of regular expressions

@@ -1,5 +1,6 @@
 ---
 title: 'Linear Regression'
+description: "Linear regression from the ground up: deriving the best fit line from squared error, then LASSO, Ridge and Elastic Net regularization."
 date: '2026-01-25T17:47:48+05:30'
 topics: ["Artificial Intelligence", "Introduction to Machine Learning"]
 ---

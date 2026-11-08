@@ -1,7 +1,9 @@
 ---
 title: "HDFS and MapReduce: Revolutionizing Big Data Processing"
+description: "A step-by-step walkthrough of HDFS and MapReduce, from uploading a CSV into HDFS to computing the average movie rating per genre with Hadoop."
 date: "2025-12-23T17:43:33+05:30"
 topics: ["Big Data"]
+toc: true
 ---
 
 HDFS and MapReduce can be confusing at times. Let's break down the entire process step-by-step with a concrete example.

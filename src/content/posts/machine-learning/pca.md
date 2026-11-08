@@ -1,5 +1,6 @@
 ---
 title: 'Principal Component Analysis (PCA)'
+description: "An intuitive look at Principal Component Analysis: why eigenvectors of the covariance matrix point toward maximum variance, and how PCA reduces dimensions."
 date: '2026-01-29T08:55:16+05:30'
 topics: ["Artificial Intelligence", "Introduction to Machine Learning"]
 ---

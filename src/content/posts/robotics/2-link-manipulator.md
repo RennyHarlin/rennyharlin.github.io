@@ -1,5 +1,6 @@
 ---
 title: 'Forward and inverse kinematics of a 2-link manipulator'
+description: "Deriving the forward and inverse kinematics of a 2-link planar manipulator using geometry and Atan2."
 date: '2025-12-02T10:58:35+05:30'
 topics: ["Robotics"]
 ---

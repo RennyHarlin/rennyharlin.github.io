@@ -12,6 +12,7 @@ const posts = defineCollection({
     updated: z.coerce.date().optional(),
     draft: z.boolean().default(false),
     topics: z.array(z.string()).default([]),
+    toc: z.boolean().default(false),
   }),
 });
 

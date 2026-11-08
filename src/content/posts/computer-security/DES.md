@@ -1,5 +1,6 @@
 ---
 title: "Computer Security: Data Encryption Standard (DES)"
+description: "How DES encryption works step by step: the Feistel structure, initial permutation, expansion, S-boxes and the key schedule."
 date: "2025-12-01T18:23:22+05:30"
 topics: ["Computer Security"]
 ---

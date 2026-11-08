@@ -1,0 +1,53 @@
+---
+import type { MarkdownHeading } from 'astro';
+import katex from 'katex';
+
+interface Props {
+  headings: MarkdownHeading[];
+  /** The post's Markdown, used for heading labels so math renders properly. */
+  body?: string;
+}
+const { headings, body = '' } = Astro.props;
+
+// Astro's heading text is flattened HTML, which garbles KaTeX output.
+// Re-read the headings from the Markdown (skipping code blocks) and render their math.
+const sourceHeadings: string[] = [];
+let inFence = false;
+for (const line of body.split(/\r?\n/)) {
+  if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+  const match = !inFence && line.match(/^#{1,6}\s+(.*?)\s*$/);
+  if (match) sourceHeadings.push(match[1]);
+}
+
+const escape = (s: string) => s.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`);
+const label = (md: string) =>
+  md
+    .split(/(\$[^$]+\$)/)
+    .map((part) =>
+      part.startsWith('$') && part.endsWith('$') && part.length > 2
+        ? katex.renderToString(part.slice(1, -1), { throwOnError: false })
+        : escape(part.replace(/[*_`]/g, '')),
+    )
+    .join('');
+
+const matched = sourceHeadings.length === headings.length;
+const top = Math.min(...headings.map((h) => h.depth));
+const items = headings
+  .map((h, i) => ({ ...h, html: matched ? label(sourceHeadings[i]) : escape(h.text) }))
+  .filter((h) => h.depth <= top + 1 && h.text.trim());
+---
+
+{
+  items.length > 0 && (
+    <details open class="mb-10 rounded-lg border border-zinc-200 px-5 py-4 text-sm dark:border-zinc-800">
+      <summary class="cursor-pointer font-semibold text-zinc-900 dark:text-zinc-100">Contents</summary>
+      <ul class="mt-3 space-y-1.5">
+        {items.map((h) => (
+          <li class:list={[h.depth > top && 'pl-4']}>
+            <a href={`#${h.slug}`} class="hover:text-zinc-900 hover:underline dark:hover:text-zinc-100" set:html={h.html} />
+          </li>
+        ))}
+      </ul>
+    </details>
+  )
+}

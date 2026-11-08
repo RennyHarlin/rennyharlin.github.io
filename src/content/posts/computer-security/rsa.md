@@ -1,5 +1,6 @@
 ---
 title: "RSA, the algorithm that rules the world"
+description: "The math behind RSA, from Euler's totient function to Euler's theorem, and how it powers public-key cryptography."
 date: "2025-12-31T10:13:54+05:30"
 draft: true
 topics: ["Computer Security"]

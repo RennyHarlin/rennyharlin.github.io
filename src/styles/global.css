@@ -27,6 +27,24 @@ html.dark .astro-code span {
   @apply rounded-lg border border-zinc-200 text-sm dark:border-zinc-800;
 }
 
+/* Copy button sits on the wrapper, not the <pre>, so it stays put when the code scrolls. */
+.code-block {
+  position: relative;
+}
+.copy-button {
+  @apply absolute top-2 right-2 rounded-md border border-zinc-300 bg-white px-2 py-0.5 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300;
+}
+/* On devices with a mouse, show it only while hovering the block. */
+@media (hover: hover) {
+  .copy-button {
+    @apply opacity-0 transition-opacity;
+  }
+  .code-block:hover .copy-button,
+  .copy-button:focus-visible {
+    @apply opacity-100;
+  }
+}
+
 /* Blocks without a language (prompt examples, notes) wrap instead of scrolling sideways.
    Fenced code with a language (```python) keeps its exact layout. */
 .prose .astro-code[data-language='plaintext'] {

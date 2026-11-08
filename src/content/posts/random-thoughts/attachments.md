@@ -1,5 +1,6 @@
 ---
 title: 'Attachments in Life'
+description: "Reflections on attachment to people, and how conversations and relationships changed after COVID-19."
 date: '2026-01-19T19:47:17+05:30'
 draft: true
 topics: ["Random Thoughts"]

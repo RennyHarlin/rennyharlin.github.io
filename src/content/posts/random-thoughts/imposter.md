@@ -1,5 +1,6 @@
 ---
 title: 'Life of an Imposter'
+description: "Living with imposter syndrome: always chasing the next goal, and whether a life of constant work leaves room for memories."
 date: '2026-03-26T20:52:04+05:30'
 updated: '2026-03-26'
 draft: true

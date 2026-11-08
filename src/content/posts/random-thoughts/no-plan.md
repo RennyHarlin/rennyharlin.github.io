@@ -1,5 +1,6 @@
 ---
 title: 'A life with no plan'
+description: "How do you plan a life that keeps getting interrupted? Thoughts on plans, sudden responsibilities and discipline."
 date: '2026-02-23T10:38:21+05:30'
 draft: true
 topics: ["Random Thoughts"]

@@ -1,5 +1,6 @@
 ---
 title: 'Trees'
+description: "My solutions to LeetCode tree problems: lowest common ancestor of a BST, binary tree level order traversal and validating a BST."
 date: '2026-07-15T09:34:46+05:30'
 draft: true
 topics: []
