@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { SITE } from '../site';
+import { getPosts } from '../posts';
+
+const posts = (await getPosts()).slice(0, 8);
+---
+
+<Base>
+  <section class="py-8">
+    <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">Hi there, I'm {SITE.author}</h1>
+    <p class="mt-4 leading-relaxed">{SITE.intro}</p>
+  </section>
+
+  <section class="mt-6">
+    <h2 class="mb-6 text-sm font-semibold tracking-wide text-zinc-500 uppercase">Recent posts</h2>
+    <PostList posts={posts} />
+    <a href="/posts/" class="mt-8 inline-block text-sm underline underline-offset-4">All posts →</a>
+  </section>
+</Base>

@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Dark mode follows the .dark class on <html> (set by the theme toggle), not the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-white text-zinc-800 antialiased dark:bg-zinc-950 dark:text-zinc-300;
+  }
+}
+
+/* Shiki code blocks: switch to the dark palette with the theme. */
+html.dark .astro-code,
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.prose .astro-code {
+  @apply rounded-lg border border-zinc-200 text-sm dark:border-zinc-800;
+}
+
+/* KaTeX's hidden MathML copy can widen the page on phones; visible math, tables and code scroll on their own. */
+.prose {
+  overflow-x: clip;
+}
+
+/* Wide equations scroll instead of overflowing on phones. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+.prose img {
+  @apply mx-auto rounded-lg;
+}
+
+.prose table {
+  @apply block overflow-x-auto;
+}

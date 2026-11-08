@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import { SITE } from '../site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Set on blog posts: adds article meta tags and BlogPosting structured data. */
+  article?: { date: Date; updated?: Date; topics: string[] };
+}
+
+const { title, description = SITE.description, article } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL(SITE.image, Astro.site);
+
+const jsonLd = article
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      datePublished: article.date.toISOString(),
+      dateModified: (article.updated ?? article.date).toISOString(),
+      author: { '@type': 'Person', name: SITE.author, url: Astro.site },
+      mainEntityOfPage: canonical,
+      image,
+      keywords: article.topics.join(', '),
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE.title,
+      url: Astro.site,
+      description: SITE.description,
+    };
+
+const nav = [
+  { href: '/posts/', label: 'Posts' },
+  { href: '/topics/', label: 'Topics' },
+];
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.author} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title ?? SITE.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    {article && <meta property="article:published_time" content={article.date.toISOString()} />}
+    {article?.updated && <meta property="article:modified_time" content={article.updated.toISOString()} />}
+    {article?.topics.map((t) => <meta property="article:tag" content={t} />)}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title ?? SITE.title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Dark by default; a saved choice wins. Runs before paint to avoid a flash. -->
+    <script is:inline>
+      try {
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+      } catch {}
+    </script>
+
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.googleAnalytics}`}></script>
+    <script is:inline define:vars={{ id: SITE.googleAnalytics }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', id);
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <header class="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-6">
+      <a href="/" class="font-semibold text-zinc-900 dark:text-zinc-100">{SITE.title}</a>
+      <nav class="flex items-center gap-5 text-sm">
+        {
+          nav.map(({ href, label }) => (
+            <a
+              href={href}
+              class:list={[
+                'hover:text-zinc-900 dark:hover:text-zinc-100',
+                Astro.url.pathname.startsWith(href) && 'text-zinc-900 dark:text-zinc-100',
+              ]}
+            >
+              {label}
+            </a>
+          ))
+        }
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+          class="rounded-md p-1.5 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        >
+          <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="mx-auto w-full max-w-3xl flex-1 px-4 pb-16">
+      <slot />
+    </main>
+
+    <footer class="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-2 px-4 py-8 text-sm text-zinc-500">
+      <span>© {new Date().getFullYear()} {SITE.author}</span>
+      <span class="flex gap-4">
+        {SITE.socials.map((s) => <a href={s.url} rel="me noopener" class="hover:text-zinc-900 dark:hover:text-zinc-100">{s.name}</a>)}
+        <a href="/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-100">RSS</a>
+      </span>
+    </footer>
+
+    <script>
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        try {
+          localStorage.setItem('theme', dark ? 'dark' : 'light');
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

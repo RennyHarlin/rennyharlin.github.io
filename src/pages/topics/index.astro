@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, groupByTopic, slugify } from '../../posts';
+
+const topics = groupByTopic(await getPosts());
+---
+
+<Base title="Topics" description="Posts grouped by topic.">
+  <h1 class="py-8 text-3xl font-bold text-zinc-900 dark:text-zinc-100">Topics</h1>
+  <ul class="space-y-3">
+    {
+      topics.map(([topic, posts]) => (
+        <li>
+          <a href={`/topics/${slugify(topic)}/`} class="text-zinc-900 hover:underline dark:text-zinc-100">
+            {topic}
+          </a>
+          <span class="ml-2 text-sm text-zinc-500">{posts.length}</span>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
