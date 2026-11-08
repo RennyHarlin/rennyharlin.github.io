@@ -27,6 +27,13 @@ html.dark .astro-code span {
   @apply rounded-lg border border-zinc-200 text-sm dark:border-zinc-800;
 }
 
+/* Blocks without a language (prompt examples, notes) wrap instead of scrolling sideways.
+   Fenced code with a language (```python) keeps its exact layout. */
+.prose .astro-code[data-language='plaintext'] {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 /* KaTeX's hidden MathML copy can widen the page on phones; visible math, tables and code scroll on their own. */
 .prose {
   overflow-x: clip;
